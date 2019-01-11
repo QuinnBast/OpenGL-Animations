@@ -1,0 +1,1137 @@
+ObjLibrary Development Log
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This file is part of the ObjLibrary, by Richard Hamilton,
+  which is copyright Hamilton 2009-2016.
+
+You may use these files for any purpose as long as you do
+  not explicitly claim them as your own work or object to
+  other people using them.
+
+If you are destributing the source files, you must not
+  remove this notice.  If you are only destributing compiled
+  code, no credit is required.
+
+A (theoretically) up-to-date version of the ObjLibrary can
+  be found at:
+http://infiniplix.ca/resources/obj_library/
+
+
+
+Change History
+==============
+
+2012 Jan 27 (1:00 PM)
+---------------------
+
+Released to CS409
+
+
+
+2012 Jan 27 (4:30 PM)
+---------------------
+
+1. draw() no longer crashes when a material refernces an image that cannot be loaded.
+2. Added support for Tf command in MTL files
+3. Added warning for entirely-transparent material
+
+Released to CS809
+
+
+
+2012 Jan 30
+-----------
+
+1. Images now load correctly when a bad image is specified first
+
+
+
+2012 Feb 1
+----------
+
+1. Added SpriteFont.h/.cpp
+
+
+
+2012 Feb 3
+----------
+
+1. Fixed Vector.cpp constructor
+
+
+
+2012 Feb 7
+----------
+
+1. Added function to draw an ObjModel with the materials in an MTL library with a specific filename.
+
+
+
+2012 Feb 14
+-----------
+
+1. Decreased the percision of the isNormal()/isUnit() function in Vector3.  A Vector3 normalized with the normalize() (or getNormalized() ) function should now count as normalized.
+2. Fixed getDisplayList() in the ObjModel class to not include loading the texture in the display list it returns.  This makes drawing the model 5ish times faster.
+3. Added function to draw an ObjModel without activating its materials.
+
+
+
+2012 Feb 27
+-----------
+
+1. Added "#include <string>" to TextureManager.h.
+2. draw in SpriteFont no long sets shading mode to GL_FLAT.
+
+
+
+2012 Feb 28
+-----------
+
+1. Added "#include <cstdlib>" to MtlLibrary.h.
+2. Added "#include <cstring>" to TextureManager.h.
+
+
+
+2012 March 15
+-------------
+
+1. Fixed constructors in Vector.cpp to accept 0 length without crashing.
+
+
+
+2012 March 24
+-------------
+
+1. Reversed internal ordering in BoundedGrid to match C++.
+2. Added Bounded3DGrid
+
+
+
+2012 March 30
+-------------
+
+1. Reversed rotation on rotateAroundY to match rotateAroundX and rotateAroundZ in Vector3 class.
+
+
+
+2012 April 25
+-------------
+
+1. Fiddled with sort() in BoundedArray.
+2. Added explicit typecasts to file reading in Functions.cpp.
+3. Added default bump multiplier to MtlLibrary.cpp.
+4. Changed internal constants to unsigned int in ObjModel.
+5. Removed unreachable invariant test from TextureBmp.cpp.
+6. Added explicit typecast to Vector.cpp.
+
+
+
+2012 May 3
+----------
+
+1. Added setSize()/setLength() with fill value to BoundedArray.
+
+
+
+2012 May 10
+-----------
+
+1. Added mirrorX() and mirrorY() functions to TextureBmp.
+
+
+
+2012 August 30
+--------------
+
+1. Added more font sheets for the SpriteFont class to use.  There are now 9.
+
+
+
+2012 September 4
+----------------
+
+1. Changed all preprocessor directives from __FILENAME_H__ to FILENAME_H to comply with C++ language specifications: "__" is reserved for compiler-defined macros.
+
+
+
+2012 September 19
+-----------------
+
+1. Changed source files for BoundedArray, PriorityQueue, and Vector from .cpp to .inl.
+
+
+
+2012 September 26
+-----------------
+
+1. Added Manhatten distance and chessboard distance functions to Vector3 class.  Documentation for existing distance functions now explicitly refer to Euclidean distance.
+2. Added getRotationX/Y/Z to Vector3.
+
+
+
+2012 November 27
+----------------
+
+1. Added negation operator to Vector3 class.
+2. Added isFinite check to Vector3 class.
+3. Changed source files for BoundedGrid, Bounded3DGrid, and CircularArray from .cpp to .inl.
+4. Fixed print function in BoundedGrid and Bounded3DGrid classes.
+5. Removed superfluous include to Functions.h from CircularArray.inl.
+6. Added a few more assert tests.
+
+
+
+2013 January 8
+--------------
+
+1. Added component-wise multiplication and division to Vector3 class.
+2. Fixed a few minor documentation errors in Vector3.h and added a few more assert tests.
+3. Added init function to TextureBmp to create a blank image of a specified size.
+4. Added Vector2 class.
+5. TextureManager class now flips Bmp textures files after loading to match Maya's interpretation.  Previously matched Wavefront documentation (I think).
+
+
+
+2013 January 20
+---------------
+
+1. Added #include <cstdlib> to ObjModel.cpp - required for atoi function.
+2. Changed return type of isDistanceLessThan function in Vector2 and Vector3 to bool (was double).
+3. Changed random functions in Random.cpp to random0, random1, random2 to avoid POSIX name conflicts.
+4. Replaced call to _isfinite function in Vector3.cpp with platform-resolving macro.  Currently non-windows just returns true instead of checking.
+5. Added #include <string> to CircularArray.inl for NULL constant.
+
+
+
+2013 January 25
+---------------
+
+1. Changed implementation of random0 to avoid integer wraparound on g++.
+2. ObjModel class now used Vector2 class to represent texture coordinates instead of custom type.
+3. Added optional (macro-controlled) support for loading .png images (using third-party libraries).
+4. Loading errors from an MTL file now go in the error file/stream specified for the OBJ file the requires it instead of to stderr.
+5. Replaced call to _isfinite function in Vector2.cpp as in Vector3.cpp.
+6. Added error message for loading invalid texture type.
+
+
+
+2013 March 18
+-------------
+
+1. Added isNormLessThan() function to Vector2 and Vector3.
+2. Modified texture flip to apply to all textures, not just BMP files.
+
+
+
+2013 March 25
+-------------
+
+1. Added isNormGreaterThan() function to Vector2 and Vector3.
+
+
+
+2013 March 26
+-------------
+
+1. Added isDistanceGreaterThan() function to Vector2 and Vector3.
+
+
+
+2013 March 28
+-------------
+
+1. Added newline at end of Random.cpp to fix POSIX compile errors.
+
+
+
+2013 May 14
+-----------
+
+1. Fixed add() functions in TextureManager to convert internal names with lowercase.  Previously, names with uppercase characters prevented texture being selected from list, defaulting to reloading the file.
+
+
+
+2013 June 14
+------------
+
+1. Replaced all Vector<>s with std::vector<>s.
+2. Vector<> is no longer required to display OBJ models.
+3. Warnings in MtlLibrary for entirely transparent materials now print to logfile instead of standard output.
+4. Component-wise multiplication must now be explictly specified for Vector2 and Vector3 instead of being the overloaded meaning of the multiplication operator.
+5. Added setSize() function to BoundedGrid.
+
+
+
+2013 June 15
+------------
+
+1. Added in-place rotation functions to Vector2 and Vector3.
+2. Renamed texture_manager namespace to TextureMnager to comply to conventions.
+3. Added isEmpty() function to ObjModel.
+
+
+
+2013 June 21
+------------
+
+1. Renamed Bounded3DGrid<> to Bounded3dGrid<>.
+2. Changed default sizes of BoundedGrid<> and Bounded3dGrid<> to static member constants from global constants in anonymous namespaces.  The namespaces were being included in any file the classes were used, which lead to conflicts.
+3. Added non-const get function to BoundedGrid<> and Bounded3dGrid<>.
+
+
+
+2013 July 22
+------------
+
+1. Added versions isNormLessThan and isNormGreaterThan functions that compare to another vector insteead of a scaler.
+
+
+
+2014 January 7
+--------------
+
+1. Added Ni for optical density (index of refraction) to MTL loader.
+
+
+
+2014 January 20
+---------------
+
+1. Added templated UpdatablePriorityQueue.
+
+
+
+2014 January 24
+---------------
+
+1. Updated documentation in Vector2/3.h to say class instead of record.
+2. Fixed bug where setUp2dView function in SpriteFont crashed if given a non-postitive window size.  This happens if you minimize the window.
+
+
+
+2014 March 13
+-------------
+
+1. Added getNormlaizedSafe, getCopyWithNormSafe, normalizeSafe, setNormSafe functions to Vector2/3.h that quietly pass through zero vectors.
+2. Renamed is2DViewSetUp, setUp2DView, and unsetUp2DView functions to is2dViewSetUp, setUp2dView, and unsetUp2dView to comply with naming conventions.
+3. Added support for non-strandard "Km" command in MTL files (interpreted to specify bump multiplier).
+4. Fixed bug to write bump multiplier to MTL files only when non-default instead of vice versa.
+5. "o" lines in OBJ models no longer generate an error message (but are still ignored).
+
+
+
+2014 March 21
+-------------
+
+1. Renamed cosAngle to getCosAngle in Vector2/3 classes to conply with naming convention.
+2. Added getTruncated, truncate, getAngle, getCosAngleSafe, and getAngleSafe functions to Vector2/3 classes.
+3. Changed data type for default MtlLibrary name from const std::string to const char*.  This should fix the dependancy on file compilation order.  I hope.
+4. You can now specify an error stream or file to the TextureBmp class and TextureManager service.
+
+
+
+2014 April 3
+------------
+
+1. Added copyright notice to all files.
+2. Subsumed ObjStringOperations.h/.cpp into ObjStringParsing.h/.cpp.
+
+
+
+2014 October 17
+---------------
+
+1. Standardized "public:", "protected:", and "private:" to never have leading spaces in class declarations.
+2. Improved whitespace in Vector2.h/.cpp and Vector3.h/.cpp.  They should now display correctly with any tab size.
+3. Added isAllComponentsNonZero, isAllComponentsNonNegative, and isAllComponentsPositive functions to Vector2 and Vector3.
+4. Added isAllComponentsLessThan, isAllComponentsLessThanOrEqual, isAllComponentsGreaterThan, and isAllComponentsGreaterThanOrEqual functions to Vector2 and Vector3 that compare to a double or another Vector2/Vector3.  Also added an isAllComponentsEqualTo function that compares to a double.  The vector-comparison version would be the equality test.
+5. Added componentRatio and componentRatioSafe functions to Vector2 and Vector3 that divide trhe corresponding elements in vectors.
+
+
+
+2014 November 17
+----------------
+
+1. Clarified terms of use to allow authority figures (professors, employers, etc.) to limit the use of ObjLibrary in their area of authority (assignments, company projects, etc.).
+2. Added getComponentX, getComponentY, and getComponentZ to Vector2 and Vector3 that make copies with all but one element set to 0.0.
+3. Added getComponentXY, getComponentXZ, and getComponentYZ to Vector3 that make copies with all but two elements set to 0.0.
+4. Improved documentation for Vector2 and Vedctor3 classes to appear for all copies of similar functions (e.g. isUnit and isNormal).  Achieved by copying documentation for each function.
+
+
+
+2015 January 6
+--------------
+
+1. Removed error messages when loading an ObjModel with otehrwise blank "g", "o", or "s" lines.
+2. Changed "ERROR: " to "Error: " for OBJ model file does not exist error message.
+
+
+
+2015 January 8
+--------------
+
+1. Added a conveniance version of getMatrixProduct to Vector3 that takes 3 Vector3s as parameters instead of a 9 doubles.
+2. Added isOrthogonal to Vector2 and Vector3.
+3. Added IsParallel to Vector2.  Previously was only in Vector3.
+4. getRotatedAxes in Vector3 is now getRotatedXZAxes.
+
+
+
+2015 January 13
+---------------
+
+1. Fixed componentProduct, componentRatio, and componentRatioSafe in Vetcor2 and Vector3 to be const functions.
+2. Removed superflouous preconditions for unsigned char versions of drawVertices and drawWireframe in ObjModel.
+
+
+
+2015 January 15 (10:30 AM)
+--------------------------
+
+1. Reversed assignment of Y-coordinates for .bmp files.  Now matches Maya and .png.  This is probably the opposite of the Wavefront standard, but I am not sure about that...
+
+
+
+2015 January 15 (4:00 PM)
+-------------------------
+
+1. Added getCosAngleNormal and getAngleNormal to Vector2 and Vector3 that require to normal vectors.  These are faster than the plain getCosAngle and getAngle.
+
+
+
+2015 January 26
+---------------
+
+1. Replaced version of Vector3 getMatrixProduct taking 3 Vector3s as parameters with two versions named getMatrixProductRows and getMatrixProductColumns that treat them as row and column vectors respectively.  The column version is correct for change-of-basis calculations.
+
+
+
+2015 January 30
+---------------
+
+1. Improved whitespace in ObjModel.h.  It should now display correctly with any tab size.
+2. ObjModel now stores file name and file path as seperate values.  getName has been replaced with getFileName, getFilePath, and getFileNameWithPath.  Similarly for setName.
+3. Improved filename validity checking for ObjModel: paths without a filename at the end are now detected.
+4. Added isLoadedSuccessfully function to ObjModel to determine if the ObjModel was successfully loaded from a file.
+
+
+
+2015 February 6
+---------------
+
+1. Improved whitespace in MtlLibrary.h.  It should now display correctly with any tab size.
+2. MtlLibrary now stores file name and file path as seperate values.  getName has been replaced with getFileName, getFilePath, and getFileNameWithPath.  Similarly for setName.
+3. Improved filename validity checking for ObjModel: paths without a filename at the end are now detected.
+4. Added isLoadedSuccessfully function to MtlLibrary to determine if the MtlLibrary was successfully loaded from a file.
+5. Added makeEmpty function to MtlLibrary to transform an existing MtlLibrary into the state created by the default constructor.
+6. Improved a few comments in ObjLibrary.h
+7. Texture usage priority order is now diffuse, ambient, specular.
+8. Added an option for file path propagation (enabled by default).  If your OBJ and MTL files already include the relative path from your working directory, call ObjModel::setPathPropagation(false); before loading anything to restore the old behaviour.
+9. Default file names are now in lowercase and include file extension.
+
+
+
+2015 February 12
+----------------
+
+1. Updated ObjModel to refer to "lines" as "polylines" and "face sets" as "meshes".
+2. Added isAllTriangles and getDisplayListMaterialNone functions to ObjModel.
+
+
+
+2015 March 3
+------------
+
+1. Added setAll function to Vector2 and Vector3 to set all components to a value.  I didn't add a constructor variant because I think it would cause too many bugs.
+2. Added getMinComponents and getMaxComponents to Vector2 and Vector3 that are basically min and max for each component.
+3. Added getRandomInRange functions to Vector2 and Vector3.
+4. Added getRandomUnitVectorXY, getRandomUnitVectorXZ, and getRandomUnitVectorYZ functions to Vector3.
+
+
+
+2015 March 5
+------------
+
+1. Added isNormXYLessThan, etc. functions to Vector3.
+2. String equality is now compared with equality and inequality test operators (== and !=) instead of string::compare function.
+
+
+
+2015 August 11
+--------------
+
+1. Textures can now load from the same directory as the material file when loaded implicitly from a call to activate().  It is now possible to set the texture ppath for a material.
+
+
+
+2015 August 12
+--------------
+
+1. Illumination mode 0 (constant illumination and lighting disabled) now uses ambient + diffuse instead of ambient + diffuse / 2.  Models should no longer appear at half brightness.
+2. Improved spacing in MtlLibrary.h and ObjLibrary.h.
+3. Added get/set for texture coordinates as a Vector2 in ObjModel.
+4. Added drawMaterial function to ObjModel that takes a string as a parameter and searches current material files.  Also a variaent where you specifiy a material file.
+5. Added functions to activate and deactive materials directly from MtlLibrary.
+6. Added isMaterial() and getMaterial() functions to MtlLibraryManager.
+
+
+
+2015 August 15
+--------------
+
+1. Added isNormLessThanOrEqual and isNormGreaterThanOrEqual to Vector2 and Vector3.
+2. Added isAllComponentsNegative and isAllComponentsNonPositive to Vector2 and Vector3.
+3. Added getRandomSphereVector and getRandomInRangeInclusive to Vector2 and Vector3.
+4. Added getAntiProjection to Vector2 and Vector3.
+5. Added randomBool to Random.h.
+
+
+
+2015 August 16
+--------------
+
+1. Improved spacing in DisplayList.h.
+2. Added isEmpty, isPartial, and isReady query functions to DisplayList class.  Preconditions for existing functions now use these when appropriate.
+3. Texture manager now loads PNG images with alpha channel from image.
+
+
+
+2015 August 22
+--------------
+
+1. Added getPsuedorandomUnitVector function to Vector2 and Vector3 classs and getPsuedorandomUnitVectorXY, getPsuedorandomUnitVectorXZ, getPsuedorandomUnitVectorYZ to Vector3 class.  These act the like random version but take seed values.
+
+
+
+2015 September 14
+-----------------
+
+1. Added functions to ObjModel to remove point sets, polylines, meshes, and faces.  Also added functions remove the vertexes composing them, singley or all at once.
+2. Changed addPointSetVertex, addPolylineVertex, and addFaceVertex in ObjModel to start numbering at 0.  This brings it into conformity with the rest of the, but no longer matches the OBJ file.  A note was added to the class description explaining this.
+3. Changed print function in ObjModel class for clarity.  Now prints "N faces" instead of just "N".
+
+
+
+2015 September 23
+-----------------
+
+1. Fixed isMeshMaterial is ObjLibrary to return true if there is a material and false otherwise.  Was the other way around.
+2. Added versions of print, printMtlLibraries, and printBadMaterials to ObjLibrary that take a logfile and a logging stream as parameters.
+3. Clarified documentation for setPolylineVertexTextureCoordinates, setFaceVertexTextureCoordinates, and setFaceVertexNormal to explicitly state the effect of NO_TEXTURE_COORDINATES and NO_NORMAL as arguments.
+
+
+
+2015 October 2
+--------------
+
+1. Fixed documentation for isNormGreaterThan, getAntiProjection, and getRandomSphereVector functions in Vector2 to say Vettor2 instead of Vector3.
+2. Fixed documentation for isNormLessThanOrEqual and isNormGreaterThanOrEqual functions in Vector3 to say Vector3 instead of Vector2.
+3. Added versions of getRandomInRange and getRandomInRangeIncluusive functions to Vector2 and Vector3 classes that take 0 and 1 parameters.
+4. Added getPsuedorandomSphereVector and 3 getPsuedorandomInRange functions to Vector2 and Vector3 classes.  These act the like random version but take seed values.
+
+
+
+2015 October 17
+---------------
+
+1. Added getClampedComponent functions to Vector2 and Vector3 classes that take dioubles and Vector2/3s as parameters.  These impose a minimum and maximum on each component.
+2. Added file ObjSettings.h to store ObjLibray options.  Options were previously in whichever header file seemed most conveniant.
+3. Moved path propogation global state from ObjModel.h to ObjSettings.h and converted it to a macro named OBJ_LIBRARY_PATH_PROPAGATION.
+4. Moved OBJ_LIBRARY_SHADER_DISPLAY macro from ObjModel.h to ObjSettings.h.
+5. Moved OBJ_LIBRARY_LOAD_PNG_TEXTURES macro from TextureManager.h to ObjSettings.h.
+6. Fixed addMaterialLibrary(library, logfile) to call addMaterialLibrary(library, logstream) ionstead of load(library, logstream).
+7. Renamed projection function in Vector2 and Vector3 to getProgection.  I hope this doesn't break too much.
+
+
+
+2015 October 18
+---------------
+
+1. Added add and addAll functions to Vector2/3.  These increase the components instead of setting them.
+
+
+
+2015 October 20
+---------------
+
+1. Improved getRotatedArbitrary and rotateArbitrary functions in Vector3 class.  Internal Matrix3x3 class now uses 3x3 instead of corner of 9x9 and has size constants as members.  Identity matrix is now declared in each function instead of at file scaope, ensuring it is always initialized.
+
+
+
+2015 October 22
+---------------
+
+1. Renamed add and addAll functions in Vector2/3 to addComponents and addComponentsAll.
+
+
+
+2015 October 25
+---------------
+
+1. Renamed componentProduct, componentRatio, and componentRatioSafe functions in Vector2/3 to getComponentProduct, getComponentRatio, and getComponentRatioSafe.
+2. Added getNormRatio and getNormRatioSafe functions to Vector2/3.
+3. Added isDistanceEqual function to Vector2/3.
+4. Improved spacing and documentation in TextureManager.h, TextureManager.cpp, MtlLibrary.h, and MtlLibraryManager.h.
+5. Added versions of the get and activate function in TextureManager that take a wrapping mode and magnification and minification filters as parameters.
+
+
+
+2015 October 26
+---------------
+
+1. Added isNormEqualTo functions to Vector2 and Vector3 that take a double or a Vector2/3 as a parameter.
+
+
+
+2015 November 12
+----------------
+
+1. Changed return type for isNormLessThan, isNormLessThanOrEqual, isNormGreaterThan, isNormGreaterThanOrEqual, and isNormEqualTo functions to Vector2 and Vector3 to return a bool instead of a double.
+
+
+
+2015 November 13
+----------------
+
+1. Added a constant for floating point error in normal calculations to Vector2 and Vector3 classes.  Updated all class functions and descriptions to use it.
+2. Added tolerances to less than and greater than comparisons for norms and distances in Vector2 and Vector3 classes.  Removed less/greater than or equal comparisons as redundant.
+3. Minor formatting and documentation fixes to Vector2.h Vector3.h.
+4. Updated Vector3::getPseudorandomSphereVector to use C++11 cbrt function if available.
+
+
+
+2015 November 21
+----------------
+
+1. Added isSameDirection function to Vector2 and Vector3 classes.
+
+
+
+2015 November 23
+----------------
+
+1. Fixed addAllComponents in Vector3 to add to X, Y, and Z components instead of X, Y, and X again and renamed to addComponentsAll.
+
+
+
+2015 November 30
+----------------
+
+1. Changed getTruncated function to Vector2 and Vector3 classes to be const.
+2. Added asserts to getProjection, getAntiProjection, getProjection, and getAntiProjection functions to Vector2 and Vector3 classes to ensure resurned value is parallel or othoganal (as appropriate).
+
+
+
+2015 December 6
+---------------
+
+1. Updated the comments for the drawMaterials function in ObjModel taking a vector of pointers.
+2. Added versions of drawMaterials function to ObjModels that take vectors of C-strings and STL strings.
+3. Added getMeshMaterialNames function to ObjModels that returns an STL vector of the names of the materials.
+4. Added isSingleMaterial function to ObjModel.
+5. Added getAsArray functions to Vector2 and Vector3 that reinterprets the Vector2/3 as an array of doubles.  Both classes have const and non-const variants.
+6. Found a rare assert error in getAntiProjection functions in Vecto2 and Vector3.  IT is caused by floating point rounding, so I don't even know how to reproduce it, let alone ensure that it is fixed.
+
+
+
+2015 December 7
+---------------
+
+1. Improved VECTOR2_IS_FINITE and VECTOR3_IS_FINITE macros in Vector2.h and Vector3.h.  They should work everywhere now.
+2. Added isSameHemisphere function to Vector2 and Vector3 to determine if two Vector2/3s are within 90 degrees of each other.
+
+
+
+2015 December 8
+---------------
+
+1. Added precondition to getDisplayList function documentation for ObjModel class.  Precondition was already in function implementation.
+2. Added getDisplayListMaterial function to ObjModel with variants that take a Material, a C-string, and an STL string.
+3. Various minor documentation fixes in ObjModel.h and Material.cpp.
+4. Changed tolerance for norms and distances to use ratios instead of absolute values in Vector2 and Vector3.
+5. Added isNormXYEqualTo, isNormXZEqualTo, and isNormYZEqualTo functions to Vector3 with versions that take scalar and vector parameters.
+6. Added isAllComponentsNotEqualTo to Vecto2 and Vector3 with versions that take scalar and vector parameters.
+7. Added a precondition to isDistanceEqualTo, isDistanceLessThan, and isGestanceGreaterThan functions in Vectir2 and Vector3 to ensure the comparison distance is non-neagative.
+8. Fixed normalizeSafe in Vector2.h and setNormSafe in Vector2 and Vector3 so that they won't crash when given a zero vector.
+9. Renamed isDistanceEqual function in Vector2 and Vecto3 to isDistanceEqualTo for consistancy with norm functions.
+10.Changed getAntiprojection and getAntiprojectionNormal functions to always return zero whctor when vectors are parallel.  The very small vectors otherwise returned were not orthagonal.
+
+
+
+2015 December 9
+---------------
+
+1. Moved tolerance constants outside the Vector2 and Vector3 classes.  This allows them to be declared in the .h file and thus ensures that they are initialized before they are used.
+2. Changed getRandomSphereVector in Vector2.cpp and Vector3.cpp to use exact norm comparison instead of one with tolerance.
+
+
+
+2016 January 16
+---------------
+
+1. Removed incorrect assert in getNormRatioSafe in Vector2/3 that required the second vector to be non-zero.  *Safe version should handle zero vectors.
+2. Added asserts to getCosAngle, getCosAngleSafe, getAngle, and getAngleSafe in Vector2/3 to ensure that norms are non-zero.
+3. Added asserts to getProjection in Vector2/3 to ensure that norm of vector projected onto is non-zero.
+4. The isZero function in Vector2/3 now reports true if all components are anywhere in the range [-1.0e-100, 1.0e-100].  This prevents non-zero vectors from having norms of zero.  The original functionality is available as the isZeroStrit function.
+
+
+
+2016 January 26
+---------------
+
+1. Corrected documentation of in-place math operators in Vector2/3 classes (+=, etc.) to state that a value is returned.
+2. Rearranged a few functions in Vector2/3 for consistancy.
+3. Renamed rotateAxes in Vector3 to rotateXZAxes.
+
+
+
+2016 January 27
+---------------
+
+1. Improved documentation of for getClosestPointOnLine function in Vector2/Vector3.
+
+
+
+2016 January 29
+---------------
+
+1. Added constructors for Vector2/Vector3 class that take an array of elements.
+2. Added getPerpendicular to Vector2 class.
+3. Fixed getAntiProjection and getAntiProjectionNormal functions in Vector2 to use cached projection instead of recalculating it.  Vector3 already used cached value correct.
+4. Added getProjectionSafe and getAntiProjectionSafe variants to Vector2/3 that work for zero vectors.
+5. Fixed TextureManager::activate(const std::string& name, std::ostream& r_logstream) to use the specified logstream instead of defaulting to cerr.
+6. Added implementations for versions of get and activate functions in TextureManager that take wrapping and mag/minification parameters.  Functions had prototypes but no implementations.
+7. Loading PNG textures through TextureManager no longer quiety forces filename to lowercase.
+8. TextureManager texture loading errors now display case-sensitive filename instead of lowercase version.
+
+
+
+2016 January 31
+---------------
+
+1. Added include for Glut.h to TextureManager.cpp.  Needed for default wrapping and mag/minification values.
+
+
+
+2016 March 28
+-------------
+
+1. Replaced #include <climits> with <cfloat> in Vector3.h.
+2. Renamed VECTOR2_IS_FINITE in Vector3.h to VECTOR3_IS_FINITE.
+
+
+
+2016 March 31
+-------------
+
+1. Changed implementation of isParallel, isSameDirection, and isOrthogonal in Vector2/3 to test normalized vectors.  Should work better now when vector lengths are very different.  I hope.
+2. Added command to clear the list of MTL libraries used in makeEmpty function of ObjModel.  Assert at end should now pass if a model that uses materials is cleared.
+3. Added GL_ENABLE_BIT to the state saved in Material::active.  Textures should now be deactived at function end if deavtived at function start.
+4. ObjModel now prints bad materials at end of object load
+5. ObjModel prints an warning to cerr if matrial specified to draw or create a display list with does not exist.  Ideally, this should be to a logging stream.
+
+
+
+2016 April 3
+------------
+
+1. Corrected documentation for getAllMaterialNames in ObjModel.
+2. Added getMtlLibraryCount, isSingleMtlLibrary, getMtlLibraryName, getMtlLibraryPath, and getMtlLibraryNameWithPath functions to ObjModel class.
+
+
+
+2016 April 5
+------------
+
+1. Added removeMtlLibraryAll and removeMeshAll functions to ObjModel class.
+2. Renamed getMtlLibraryCount, isSingleMtlLibrary, getMtlLibraryName, getMtlLibraryPath, and getMtlLibraryNameWithPath functions in ObjModel class to *MaterialLibrary*.
+3. Removed attempt in save function of Material class to print bump multiplier when no bump map.
+
+
+
+2016 May 23
+-----------
+
+1. Added VECTOR2_ONE_MINUS_NORM_TOLERANCE_SQUARED and VECTOR2_ZERO_TOLERENCE constants to Vector2.2 and VECTOR3_ONE_MINUS_NORM_TOLERANCE_SQUARED and VECTOR3_ZERO_TOLERENCE constants to Vector3.h, replacing hardcoded tolerances.
+2. Added *Normal versions of isParallel, isSameDirection, and isOrthogonal functions in Vector2 and Vector3 classes.
+3. Added versions of getComponentsMin and getComponentsMax functions to Vector2 and Vector3 classes that take a double value as a parameter.
+4. Added planar versions of getRandomSphereVector* and getPsuedorandomSphereVector* functions to the Vector3 class that generate vectors on the XY, XZ, and YZ planes.
+5. Added versions of getRandomInRange and getPsuedorandomInRange functions to Vector2/3 class that take doubles as minimums and maximums.
+6. Added planar versions of getDistance* and getDistance*Squared functions to the Vector3 class that compute distances along the XY, XZ, and YX planes.
+7. Added planar versions of isDistance*EqualTo, isDistance*LessThan, and isDistance*GreaterThan functions to the Vector3 class that compare distances along the XY, XZ, and YX planes.
+8. Fixed comment whitespace in ObjStringParsing.h.
+9. Added a startsWith function to ObjStringParsing.h/.cpp with variants for C-string and STL string.
+
+
+
+2016 May 25
+-----------
+
+1. Changed isSingleMaterial function in ObjModel to only return true if the model uses exactly one named material.  Previously, the function also returned true if there was no material.  I hope this doesn't cause problems.
+2. Added getSingleMaterialName, getSingleMaterial, and getMeshMaterial functions to ObjModel.
+3. Added getMaterialLibrary function to ObjModel with versions that get a MtlLibrary by index and get the only MtlLibrary.
+4. Added removePointSetAll and removePolylineAll functions to ObjModel.
+5. Added whitespaceToSpaces function to ObjStringParsing.h/.cpp.
+6. Modified load functions in ObjModel and MtlLibrary to use startsWith function instead of hardedcoded checks.
+7. Reduced whitespace when saving material to 1 blank line between materials and none within material specifications.
+8. Added static createSolid and createTextured functions to the Material class to create simple (unlit) Materials.  The createTexture fuunction has variants with and without a texture path parameter.
+
+
+
+2016 May 26
+-----------
+
+1. Improved whitespace in Material.h.
+2. Modified Material class to use Vector3 to represent colours instead of internal colour struct with identical fields.
+3. Fixed loadAllTextures function in Material class to load all textures with a filename.  Previously loaded all textures where the filename was an empty string.
+4. Added Vector3 versions of setAmbientColour, etc. functions in Material class.
+5. Added getAmbientColour, etc. functions to Material class that return the colour as a Vector3.
+6. Added versions of getDisplayListMaterial function in ObjModel class that take a filename and a logging file/stream as parameters.
+7. Changed TextureManager::add to return a texture index instead of a reference to the texture.
+8. Added load function to TextureManager with many variants for options.  Possible arameters are logging file/stream, wraping mode, mag/minification filter, and transparent colour.
+9. Removed most variants of TextureManager::get and TextureManager::activate.  Each function now only has 2: C-string and STL string.  Previous functionality is now available via load function.
+10.Added OBJ_LIBRARY_LINEAR_TEXTURE_INTERPOLATION macro to ObjSettings.h to allow linear texture interpolation by default.  Otherwise nearest is used (previous default).
+11.TextureManager module now stores texture names in a case-sensitive manner and performs a case-insensitive comparison.  Previously stored in a case-insensitive manner.
+
+
+
+2016 May 27
+-----------
+
+1. Moved OBJ_LIBRARY_LINEAR_TEXTURE_INTERPOLATION macro above OBJ_LIBRARY_LOAD_PNG_TEXTURES macro.
+2. Fixed TextureManager to not crash when OBJ_LIBRARY_LOAD_PNG_TEXTURES macro is disabled.
+3. Updated load function in MtlLibrary to load emmisive colour (and map).
+4. Fixed loading of 32-bit bmp files.  RGB coordinates were arranged incorrectly.
+5. Added OBJ_LIBRARY_TR_0_IS_TRANSPARENT macro in ObjSettings.h to determine how "Tr" lines in *.mtl files should be interpreted.
+6. Fixed TextureBmp to load non-4-byte-word-aligned textures (RGB with width not a multiple of 4) correctly.  Loading and saving such a texture will now produce an idential image file to the one loaded.
+7. Added a warning in for trying to display a non-4-byte-word-aligned texture with OpenGL.  It doesn't display correctly.
+
+
+
+2016 November 2
+---------------
+
+1. Modified ObjModel class to store point sets and polylines inside Meshes.  Many functions were added, renamed, and extensively changed.
+2. Renamed single-library versions of *MaterialLibrary* functions to *SingleMaterialLibrary*.
+3. Changed all "vertices" ObjModel class to "vertexes".
+4. Fixed drawPolylines function in ObjModel to flip texture coordinates.  Now the same as when drawing faces.
+5. Added getSaturated function to Vector2/3 class that clamps all components to the range [0.0, 1.0].
+6. Added macro-conditional constexpr to non-array constructors in Vector2/3.  Should only apply when the compiler supports them.
+7. Rethinking where GetGlut.h will be (in progress).  Currently just one in super directory.
+8. Added OBJ_LIBRARY_GLM_INTERACTION in ObjSettings to allow interaction with glm library.
+9. Added constructors to Vector2/3 classes to construct from the corresponding type of glm vector and typecast operators to convert back.
+10.Removed "inlines" from functions defined inside Vector2/3 classes (implied, so superfluous and potentially misleading).
+11.Added getGlutWithShaders.h file.  Sort of like GetGlut.h.
+12.Added ObjVbo class to encapsulate a VBO.
+
+
+
+2016 November 3
+---------------
+
+1. Added ObjVao class to encapsulate a VAO.  This class only manages the VAO itself, not its associations with VBOs or drawing stuff.
+2. MeshOnGpu class to represent a mesh in a model.
+3. Replaced all #include of <string> to get NULL with #includes for <cstddef>.   Affected Texture.cpp, DisplayList.cpp, Vbo.cpp, and Vao.cpp.
+4. Added getComponentCount and getStride functions to VertexDataFormat.
+
+
+
+2016 November 7
+---------------
+
+1. Renamed MeshOnGpu class to MeshWithShader
+2. Added ModelWithShader class to represent a model.
+3. Removed "with the current enviroment settings" from the documentation for ObjModel::getDisplayList.  I don't know what it means, and it is probably wrong.
+4. Added #includes for DisplayList.h and MtlLibrary.h to ObjModel.h.
+5. Fixed header guards in ObjVbo.h to say OBJ_VBO_H instead of DISPLAY_LIST_H
+6. Converted ObjVbo to a template class.  Template parameter is the type of data being stored.  Updated MeshWithShadar to match it.
+7. Updated draw function in MeshWithShader and ModelWithShader to take a transformation matrix and a camera position as parameters.
+
+
+
+2016 November 8
+---------------
+
+1. Fixed 2 asserts in ObjVbo.inl to fail on incorrect values instead of correct.
+2. Fixed 3 bugs in ObjModel::getModelWithShader.
+3. Fixed invariant test in MeshWithShader to return false for incorrect values instead of correct.
+4. Added Shader.vert and Shader.frag
+5. MeshWithShader::draw now draws the mesh.  However, it needs more work.
+6. Added get*MeshWithShader helper functions to ObjModel.
+7. Added TextureCoordinateAndNormal and VertexArrangement types to ObjModel.  These are used when calculating shader indexes.
+8. Added createPointSetVboVertexOnly and createPointSetVbo* helper functions to ObjModel.
+9. Added createIndexVboSimple helper function to ObjModel to calculate a trivial index buffer for non-indexed data.
+10.Added calculateVertexArrangement helper function to ObjModel to determine how to assign face vertexes into a VBO without duplicates.
+11.Added createIndexVboForFaces helper function to ObjModel to calculate vertex indexes for faces.
+12.Added createFaceVboVertexOnly helper functions to ObjModel that calculates a VBO based on the results from calculateVertexArrangement.  More variants will be needed for normals and textures.
+13.Updated getModelWithShader in ObjModel to use new get*MeshWithShader helper functions.
+14.Moved drawing function in ObjModel into big block preprocessotr macros.  Now only some exist, depending on OBJ_LIBRARY_SHADER_DISPLAY.
+15.Added simple vertex and fragment shaders.
+
+
+
+2016 November 10
+----------------
+
+1. Added material information to ModelWithShader.  It is no longer in MeshWithShader. 
+2. Updated VertexDataFormat.h to use "s" and "t" for texture coordinates instead of "u" and "v".  Updated MeshWithShader and ObjModel to match.
+3. Fixed getDiffuseColour in Material.cpp.  Was returning ambient colour.
+4. Updated ModelWithShader::draw to set uniforms (including textures) for shader based on material.  Also loades textures if needed.
+5. Improved shaders to take texture coorinates and normals, to perform Phong lighting with optional seperate specular, and to display textures.
+6. Replaced all "cooridnate"s with "coordinate"s in documentation and comments in ObjModel.h/.cpp.  Were none in other files.
+7. Updated VertexDataFormat constants to be POSITION* instead of VERTEX*.  Updated MeshWithShader and ObjModel.
+8. Added getVertexArrangementTotalCount function to ObjModel.  Updated createFaceVboVertexOnly to use it.
+9. Added createFaceVboVertexTextureCoordinate, createFaceVboVertexNormal, and createFaceVboVertexTextureCoordinateNormal functions to ObjModel.  Updated getFaceMeshWithShader to use them.
+10.Updated Material::loadAllTextures function to choose which texture to use to display the material.  Also updated documentation of loadDisplayTextures to say that it does this.
+11.Added isDisplayTexturesLoaded and isAllTexturesLoaded functions to Material.
+12.Fixed MeshWithShader::init to use the correct offset for the texture coordinates in the VBO.
+13.Updated functions to flip t/v texture coordinates when crateing VBOs (matches Maya)/
+
+
+
+2016 November 11
+----------------
+
+1. Updated ObjModel to be able to create a MeshWithShaders for models with non-triangular faces.
+2. Seperated DEBUGGING test in ObjModel into 4 tests that can be enabled independantly.
+3. Prefixed all header guards with "OBJ_LIBRARY_".
+4. Replaced all "emmision"s and "emmisive"s with "emission".
+5. Moved functions to acivate and eweactive materials in Material and MtlLibrary into big block preprocessotr macros.  They now only exist if OBJ_LIBRARY_SHADER_DISPLAY is not #defined (fixed-pipeline mode).
+6. Added MaterialForShader class to represent all the drawing information that is needed for a shader material.  It is all stored in the correct OpenGL-complient data types.
+7. Added getForShader function to Material that creates a MaterialForShader.  It only exists if OBJ_LIBRARY_SHADER_DISPLAY is #defined.
+8. Changed ModelWithShader class to store a MaterialForShader instead of a raw Material.  Uses the ModelWithShader::Activate function to set material-related uniforms. Updated ObjModel to specify materials correctly.
+9. Changed preprocessor macros to print invalid settings with #error instead of just invalid text starting with "Error:".
+
+
+
+2016 November 12
+----------------
+
+1. Added support for transparency and shininess textures.  Now numbered 0 and 5, respectively.
+2. Shader now works with transparency, ambient, diffuse, and specular textures.
+3. Changed formula for seperate specular.  It still doesn't work right (probably).  2016-11-13: I think it actually does work.
+
+
+
+2016 November 13
+----------------
+
+1. Fixed seperate specular uniforms in MaterialForShader::draw to pass the value as an int.
+2. Added ShaderNoLights.frag, which is simpler.
+3. Light properties in Shader1Light ae now uniforms instead of constants.  Works for directional lights but not point lights so far.
+
+
+
+2016 November 14
+----------------
+
+1. Changed ModelWithShader::draw and shaders to take a model transformation maxtrix and a view-perspective matrix instead of a single combined matrix.
+2. Point lights now work correctly.
+3. Added transparency and shininess channels to MaterialForShader.  Updated Material to set them.
+
+
+
+2016 November 17
+----------------
+
+1. Shaders now use transparency and shininess channels correctly.
+2. Added initDefault function to MaterialForShader which restores an instance the the state produced by the default constructor.
+3. Added ObjShader namespace to load and activate shaders.  Partially complete and largely undocumented.
+4. Updated ModelWithShader and MaterialForShader classes to call the ObjShader::activateShader for shaders.
+5. Added ShaderManyLights.frag.  Works correctly with 1 light, but not tested for more yet.
+6. Updated Shader1Light.frag to not reference multiple lights.
+
+
+
+2016 November 18
+----------------
+
+1. Split ShaderNoLights.frag into ShaderNoLights.frag and ShaderUnlit.frag.   The new ShaderNoLights.frag now draws the model as if lighting was enabled but no lights were.
+2. Added LightingManager because newer OpenGL (e.g. 4.4) doesn't support GL_LIGHTING, etc. variables.
+3. Updated ObjShader::activateShader function to use LightingManager to determine which lights tyo use.
+4. Finished the description of enabling shaders in ObjSetings.h.
+5. Added a preprocessor macro test to ObjSettings.h to ensure that shaders are not activated without glm interaction.
+6. Added preprocessor macros to the top of ObjLibrary shaders files ensure that the correct macros are #defined in ObjSettings.h.
+7. Improved ShaderManyLights.frag to allow lights to be disabled.  Added code to LightingManager and ObjShader to set this information.
+8. Added function and record documentation to ObjShader.
+
+
+
+2016 November 20
+----------------
+
+1. Added getMaterial and getMEsh functions to ModelWithShader class.
+2. Added is*TextureCoordinatesAny and is*NormalsAny functions to ObjModel.
+3. Added a version of ObjModel::getModelWithShader that allows tecture ciiridnates and normals to be disabled if desired.  They are always automatically disabled if not present in the original model.
+4. Removed duplicate command to read "map_Ns" lines in MtlLibrary.
+5. Fixed init function in MeshWithShader.  switch statenent was missing "break"s.
+6. Added versions of the activate functions to MaterialForShader that do not take uniform locations as a parmaeter.  One version takes the model position information.
+7. Added drawMaterial and drawMaterialCurrent functions to ModelWithShader class.
+8. Moved shader code files into ObjLibrary folder.
+
+
+
+2016 November 20
+----------------
+
+1. Changed #includes for TextureBmp.cpp.
+2. Standardized the capitalization of error messages.
+3. Added a version of initProgramStart that takes a geometry shader as well as vertex and fragment shaders.
+4. Added getReflection* functions to Vector2/3 classes.
+5. Simplified terms of use and updated them in all files.
+
+
+
+2016 November 26
+----------------
+
+1. Added clamping for combined colour values when using constant lighting in Material function in getForShader.
+2. Added a version of ObjShader::load function that takes a base path.
+
+
+
+2016 November 28
+----------------
+
+1. Changed initializing constructor and init function for ObjVbo to take const data.
+2. Fixed spelling of "contain" in ObjModel.h and ObjVbo.h.
+3. Fixed documentation of ObjVbo to identify "!isEmpty()" as a precondition instead of a parameter.
+4. Added bindNone and update functions to ObjVbo.
+
+
+
+2016 November 29
+----------------
+
+1. Fixed initProgramStart function in ObjShader that loads a geometry shader to load it with type GL_GEOMETRY_SHADER instead of GL_VERTEX_SHADER.
+2. Added loadShader helper function to ObjShader class.  Both variants of initProgramStart function call it.
+3. Changed draw function in ModelWithShader to reset the default texture coordinates and normal vectors after each draw call.  They become undefined if a vertex array is set.
+4. Added a variant of the ObjVbo::update function that only updates part of the array.
+
+
+
+2016 December 2
+---------------
+
+1. Improved shaders to normalize direction to camera before using it.  Also fixed spacing.
+
+
+
+2016 December 6
+---------------
+
+1. Improved fragment shaders to discard pixels with alpha <= 0.0.  This means that they will not mess up the depth buffer.
+2. Added *Safe and *Normal forms of getRotatedArbitrary/rotateArbitrary to Vector3 class.
+
+
+
+2016 December 7
+---------------
+
+1. Fixed getRotatedArbitrarySafe function in Vector3.  Was missing a line.
+2. Added getRotatedTowards*/rotateTowards* functions to Vector2 and Vector3 classes.
+3. Added getRotatedTowardsAroundAxis*/rotateTowardsAroundAxis* functions to Vector3 class.
+4. Fixed ObjModel::load to load the last (usually-empty) line in .obj files.  It was being skipped.
+5. Put the contents of ObjStringParsing in a namespace.  Updated TextureManager, Material, MtlLibrary, MtlLibraryManager, ObjModel
+6. Added isValidPath function to ObjStringParsing.
+7. Material class now requires texture path to be a valid path.  Added asserts and clause to invariant.
+8. MtlLibrary class now requires file path to be a valid path.  Added asserts and clause to invariant.
+9. Fixed spacing in documentation for MtlLibrary.
+10.ObjModel class now requires file path to be a valid path.  Added asserts and clause to invariant.
+11.Changed some variables in ObjModel form "path" to "file_path" and form "name" to "file_name" to avoid confusion.
+12.Updated ObjShader module to require a valid path.
+13.Moved everything into a big ObjLibrary namespace.  Minor changes to all files.
+14.Added setMaterial function to ModelWithShader class.
+15.Added a version of MaterialForShader::activate function that takes transofrmation matrixes but not a camera position.
+16.Added a version of ModelWithShader::drawMaterial function that does not take a camera position.
+17.Added special functions to ModelWithShader for use with single-material models.  The drawMaterial function is now drawSingleMaterial.
+18.Renamed the drawMaterialCurrent function in ModelWithShader to drawCurrentMaterial.  Fixed default normals and texture cooridnates to be reset for each mesh.
+19.Added a variant of ModelWithShader::drawMaterialCurrent function to only draw the meshes associated with one material.  Standard draw now uses this.
+20.Textures with widths that are not a multiple of 4 now load correctly.
+
+
+
+2016 December 12
+----------------
+
+1.  Fixed the include to GetGlut.h in TextureManager.cpp that is added when loading PNG textures.
+
+
+
+
+
+Changes to Make
+===============
+
+Major Changes/Additions
+-----------------------
+
+TODO: Allow quotated strings as file names - especially internally-specified MTL files and textures.  Have to do tokens better.
+TODO: Add Vector4 class?
+
+
+
+Vector2/3
+---------
+
+TODO: Move isOrthogonal, etc. to non-inline functions?  I probably need some sort of profiling to know if this is a good idea.
+TODO: Add variants of rotateTowardsAroundAxis to Vector3 for principle axes?  Do we need these?
+
+
+
+Models and Materials
+--------------------
+
+TODO: Add versions of drawMaterial and drawMaterialLibrary to ObjModel that take logging stream (and logfile?) as parameters.
+TODO: Add function in ObjModel to remove a specific MtlLibrary by number/name
+	-> What happens to loaded materials?
+TODO: Make saving ObjModels, MtlLibrarys, Materials write names in a case-sensitive manner (texture names, file names, image names?)
+
+
+
+Shaders-Related
+---------------
+
+TODO: SpriteFont needs #ifdefs to check if shaders are enabled
+TODO: Display SpriteFonts
+	-> After improving SpriteFonts as below
+	-> Draw a point for each character, one line at a time
+	-> Geometry, vertex, fragment shaders
+	-> Screen space coordinates
+	-> Set buffers of character ids and (horizontal) chracter offsets
+TODO: Change TextureBmp to use GL_CLAMP_TO_EDGE instead of GL_CLAMP with shaders.
+
+
+
+Miscellaneous
+-------------
+
+TODO: Update Vector2/3 documentation on ObjLibrary website for new functions
+TODO: More HTML pages documenting classes/functions?
+	-> ObjModel
+	-> SpriteFont
+TODO: Fix comment formatting in
+	-> TextureBmp.h
+	-> more?
+TODO: Improve SpriteFont character representation
+	-> Use texture coordinates in one big texture instead of lots of small textures
+	-> Needed to display with shaders
+TODO: Add an isValidFilename function to ObjStringParsing
+	-> Make all filename test use it
+	-> Also as isValidFilenameWithPath function
+
+
+
+Changes to Related Programs
+---------------------------
+
+TODO: ObjCompactor should combine meshes with the same material in ObjModel
+TODO: ObjCompactor has no materials on loaded model.
+	-> This suggests a bug in ObjModel or called class.  In loading, copy constructor, assignment operator?
+	-> Does saving a model with failed loading materials save materials?
+	-> Also check if ambient colour is being displayed correctly.  I got a different appearance from a different program (draws CS 409 fleets)
+
+TODO: Richard's 3D Spaceship Game needs to convert getRotatedArbitrary/rotateArbitrary to getRotatedArbitraryNormal/rotateArbitraryNormal.  That is the new name of the old function.
+
+TODO: Queue, Stack .cpp ==> .inl (replace these with STL versions?)
+TODO: All #include <string>s for NULL should be #include <cstddef>s

@@ -1,0 +1,13 @@
+﻿  Square.cpp
+c:\users\quinn\dropbox\college\cs 408 - animations\lab 3\lab3\lab3\square.cpp(33): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\quinn\dropbox\college\cs 408 - animations\lab 3\lab3\lab3\square.cpp(34): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\quinn\dropbox\college\cs 408 - animations\lab 3\lab3\lab3\square.cpp(46): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\quinn\dropbox\college\cs 408 - animations\lab 3\lab3\lab3\square.cpp(83): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\quinn\dropbox\college\cs 408 - animations\lab 3\lab3\lab3\square.cpp(84): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\quinn\dropbox\college\cs 408 - animations\lab 3\lab3\lab3\square.cpp(86): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\quinn\dropbox\college\cs 408 - animations\lab 3\lab3\lab3\square.cpp(88): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\quinn\dropbox\college\cs 408 - animations\lab 3\lab3\lab3\square.cpp(90): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\quinn\dropbox\college\cs 408 - animations\lab 3\lab3\lab3\square.cpp(92): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\quinn\dropbox\college\cs 408 - animations\lab 3\lab3\lab3\square.cpp(94): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\quinn\dropbox\college\cs 408 - animations\lab 3\lab3\lab3\square.cpp(96): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  Lab3.vcxproj -> C:\Users\Quinn\Dropbox\College\CS 408 - Animations\Lab 3\Lab3\Debug\Lab3.exe
