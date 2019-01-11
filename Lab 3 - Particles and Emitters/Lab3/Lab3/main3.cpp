@@ -7,6 +7,8 @@
 #include "GetGlut.h"
 #include "Sleep.h"
 #include "Square.h"
+#include "Fountain.h"
+#include "Sparkle.h"
 
 using namespace std;
 using namespace ObjLibrary;
@@ -20,7 +22,9 @@ void display();
 
 // Globals
 const unsigned int SQUARE_COUNT = 100;
-Square squares[SQUARE_COUNT];
+// Square squares[SQUARE_COUNT];
+// Fountain squares[SQUARE_COUNT];
+Sparkle squares[SQUARE_COUNT];
 unsigned int next_square = 0;
 bool emitter_on = true;
 Vector2 emitter_position;
@@ -49,10 +53,10 @@ int main (int argc, char** argv)
 void initDisplay()
 {
 	// Black background
-	// glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	 glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
 	// Blue background
-	glClearColor(0.0f, 0.0f, 0.5f, 0.0f);
+	// glClearColor(0.0f, 0.0f, 0.5f, 0.0f);
 
 	glutPostRedisplay();
 }

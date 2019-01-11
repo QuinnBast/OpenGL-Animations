@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Fountain.h" />
     <ClInclude Include="GetGlut.h" />
     <ClInclude Include="ObjLibrary\DisplayList.h" />
     <ClInclude Include="ObjLibrary\Material.h" />
@@ -34,9 +35,11 @@
     <ClInclude Include="ObjLibrary\Vector2.h" />
     <ClInclude Include="ObjLibrary\Vector3.h" />
     <ClInclude Include="Sleep.h" />
+    <ClInclude Include="Sparkle.h" />
     <ClInclude Include="Square.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Fountain.cpp" />
     <ClCompile Include="main3.cpp" />
     <ClCompile Include="ObjLibrary\DisplayList.cpp" />
     <ClCompile Include="ObjLibrary\Material.cpp" />
@@ -51,6 +54,7 @@
     <ClCompile Include="ObjLibrary\Vector2.cpp" />
     <ClCompile Include="ObjLibrary\Vector3.cpp" />
     <ClCompile Include="Sleep.cpp" />
+    <ClCompile Include="Sparkle.cpp" />
     <ClCompile Include="Square.cpp" />
   </ItemGroup>
   <ItemGroup>
