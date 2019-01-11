@@ -1,4 +1,4 @@
-.vs/*
-Debug/*
+**/.vs
+**/Debug
 *.tlog
 *.zip
