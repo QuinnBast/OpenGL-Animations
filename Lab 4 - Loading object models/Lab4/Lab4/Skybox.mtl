@@ -1,0 +1,9 @@
+#
+#  Skybox.mtl
+#
+
+newmtl skybox2
+illum 0
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+map_Kd skybox.bmp

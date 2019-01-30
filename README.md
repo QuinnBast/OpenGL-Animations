@@ -12,3 +12,6 @@ Various animation effects using OpenGL. Material provided from CS408 - Animation
 
 ### Assignment 1 - Particle Systems
 ![Particle Systems](https://github.com/QuinnBast/OpenGL-Animations/blob/master/SampleGifs/Assignment1.gif)
+
+### Lab 4 - Loading object models
+![Object models, and skybox](https://github.com/QuinnBast/OpenGL-Animations/blob/master/SampleGifs/Lab4.png)
