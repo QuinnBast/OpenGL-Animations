@@ -9,3 +9,6 @@ Various animation effects using OpenGL. Material provided from CS408 - Animation
 
 ### Lab 3 - Particles and Emitters
 ![Particles and Emitters](https://github.com/QuinnBast/OpenGL-Animations/blob/master/SampleGifs/Lab3.gif)
+
+### Assignment 1 - Particle Systems
+![Particle Systems](https://github.com/QuinnBast/OpenGL-Animations/blob/master/SampleGifs/Assignment1.gif)
