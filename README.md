@@ -15,3 +15,6 @@ Various animation effects using OpenGL. Material provided from CS408 - Animation
 
 ### Lab 4 - Loading object models
 ![Object models, and skybox](https://github.com/QuinnBast/OpenGL-Animations/blob/master/SampleGifs/Lab4.png)
+
+### Assignment 2 - Linear interpolation
+![Linear Interpolation](https://github.com/QuinnBast/OpenGL-Animations/blob/master/SampleGifs/Assignment2.gif)
